@@ -1,0 +1,34 @@
+.txtbox{
+	border-bottom:1px solid #434857;
+	border-right:1px solid #434857;
+	border-left:1px solid #434857;
+	height: 1rem;
+	padding-left: 0px;
+
+}
+textarea{
+	background-color: transparent;
+	border:none;
+	color:white;
+	width: 100%;
+	resize: none;
+}
+*:focus{
+	outline: none;
+}
+.user-pic img{
+	width: 50px;
+    height: 50px;
+    border-radius: 4rem;
+    padding: 7px;
+}
+.post-button button{
+	background: transparent;
+	border:none;
+}
+.btn-disabled button{
+	color:gray;
+}
+.btn-enabled button{
+	color:white;
+}

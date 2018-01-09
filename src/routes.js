@@ -9,8 +9,9 @@ import UserPage from './containers/UserPage'
 
 function Auth(nextState,replace)
 {
-	if(!localStorage.getItem('user'))
+	if(!localStorage.getItem('user') && nextState.location.pathname.search("signup") == -1  )
 	{
+		console.log("hey i'm here",nextState)
 		replace({
 			pathname:'/signup',
 			state:{nextPathname:nextState.location.pathname}
@@ -22,11 +23,13 @@ export default(
 	
 	<div>
 	<Route path="/" onEnter={Auth} component={App}>	
-		<IndexRoute component={HomePage} />
-		<Route path="/profile"  component={ProfilePage} />
-	</Route>
-		<Route path="/signup"  component={SignUpPage} />
+		<Route path="/Home" onEnter={Auth}  component={HomePage} />
+		<Route path="/profile" onEnter={Auth}  component={ProfilePage} />
 		<Route path="/login"  component={LoginPage} />
-		<Route path="/:name"  component={UserPage} />
+		<Route path="/signup"  component={SignUpPage} />
+		<Route path="/:name" onEnter={Auth}  component={UserPage} />
+	</Route>
+
+
 	</div>
 )

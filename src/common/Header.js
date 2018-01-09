@@ -6,27 +6,17 @@ const css = require('./styled.css');
 
 const Header = ({status,menuOpen,menuHide}) =>
 {
-	console.log(status)
 		return(
-	<div>
-<nav className = "navbar is-primary">
-		<div className="navbar-brand">
-		
-		<div className="navbar-item">
-			<button
-			onClick = {menuOpen}
-			>
-			<svg viewBox="0 0 24 24" >
-				 <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z">
-				 </path>
-			 </svg>	
-			</button>
-		</div>
-		
-		</div>
-	</nav>
-	{status == 'OPEN' ? <Menu menuOpen={menuOpen} menuHide={menuHide} />:null}
-	</div>
+		<nav className = "col-auto  navbar navbar-expand-lg  nav">
+			    <ul className="navbar-nav flex-column">	
+		 		
+			        <Link className="nav-link   " to="/Home" activeClassName="active" >Home</Link>
+			        <Link className="nav-link " to="/profile" activeClassName="active" >Profile</Link>
+			        <Link className="nav-link " to="/signup" activeClassName="active" >Sign up</Link>
+			        <Link className="nav-link " to="/login" activeClassName="active" >Login</Link>
+
+			    </ul>
+		</nav>
 	)
 	
 }

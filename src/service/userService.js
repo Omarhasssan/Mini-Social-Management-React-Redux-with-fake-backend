@@ -59,12 +59,12 @@ function addComment(postId,txt)
 	}
 	return fetch('/addcomment',requestOptions).then(handleResponse)
 }
-function addReply(cmntId,txt)
+function addReply(obj)
 {
 	const requestOptions={
 		method:'POST',
 		headers: { 'Content-Type': 'application/json' },
-		body:JSON.stringify({cmntId:cmntId,txt:txt})
+		body:JSON.stringify(obj)
 
 	}
 	return fetch('/addreply',requestOptions).then(handleResponse)

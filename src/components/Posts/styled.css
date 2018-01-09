@@ -1,0 +1,54 @@
+.post-container{
+	border:1px solid #434343;
+}
+p{
+	color:white;
+}
+.user-img img{
+	width: 40px;
+	height: 40px;
+	border-radius: 3rem;
+}
+.post-counters-row{
+	margin: 0px;
+}
+.cmnt-input input{
+	width: 100%;
+	background:transparent;
+	border:none;
+	border-bottom:1px solid #434343;
+	color:white;
+
+}
+.cmnt-user-img img{
+	width: 35px;
+	height: 35px;
+	border-radius: 3rem;
+}
+.w-90{
+	width: 90%;
+	margin:0 auto;
+	border-bottom:1px solid #434343;
+}
+.cmnts-controller{
+	padding: 10px;
+	background: #00000033;
+}
+.mentioned-reply-container{
+    padding-bottom: 0px;
+    padding-left: 4.5rem;
+    padding-right: 2rem;
+    padding-top: 0rem;
+
+}
+.mentioned-reply-row{
+    padding-top: 4px;
+    border-bottom: 0px;
+    margin-bottom: -2px;
+    border:1px solid black;
+    border-bottom:0px;
+}
+
+p{
+	margin-bottom: 8px!important;
+}

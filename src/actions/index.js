@@ -105,6 +105,12 @@ export function addReply(cmntId,txt)
 			)
 	}
 }
+export function ReplyForReply(replyId,type)
+{
+	return dispatch =>{
+		dispatch({type:type,replyId})
+	}
+}
 export function handleLike(targetId,liked,target)
 {
 	if(target == 'comment')

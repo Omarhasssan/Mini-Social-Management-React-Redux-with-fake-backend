@@ -1,43 +1,48 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {addComment} from '../../../actions'
+import {ReplyForReply} from '../../../actions'
 import Like from '../Like'
-import AddReply from '../AddReply'
-class Comments extends Component{
+import Comment from '../Comment'
+class Replies extends Component{
 	constructor(props)
 	{
 		super(props);
-		this.state = {expand:false}
+	}
+	handleReply(replyId)
+	{
+
+		this.props.dispatch(ReplyForReply(replyId,'ADD_REPLY'))
 	}
 
 	render()
 	{
 		const {comments,users,comment,user} = this.props;
-		const{expand} = this.state;
 		let _this = this;
+
 		return(
-			<div>
+			<div className="col">
 				{comment.repliesId.length > 0 ?
 					comment.repliesId.map(function(cId){
-						let cmnt = comments.filter(cm=>cm.id == cId)
-						let userReply = users.filter(u=>u.id == cmnt[0].userId)
-						return <div className="column is-offset-2">
-							username:<p>{userReply[0].account.name}</p>
-							txt:<p>{cmnt[0].txt}</p>
-							<Like 
-								liked={cmnt[0].likes.usersId.includes(user.id) ? true : false } 
-								likes={cmnt[0].likes}
-								comment={cmnt[0]}
-								users={users}
-								usedFor={'comment'}
-						 	/>
-							<AddReply
-								comment={cmnt[0]}
-								user={user}
-								users={users}
-								comments={comments}
-							 />
-						</div>	
+						let reply = comments.filter(cm=>cm.id == cId)
+						// m3aya l reply l reply dah le no3en y2ma ykon reply 3ady 
+						// y2ma reply 3aml mention le rply mo3yn hykon 3ndo mentionedReplyId != -1
+						//  test
+						//console.log("reply txt",reply[0].txt,"reply mention",reply[0].mentionReplyId)
+						//hgeb l mentioned Reply
+						let mentionedReply = comments.filter(cm=>cm.id == reply[0].mentionReplyId)
+						let userMentionedReply = mentionedReply.length > 0 ? users.filter(u=>u.id == mentionedReply[0].userId) : ''
+						let userReply = users.filter(u=>u.id == reply[0].userId)
+						return(
+							<Comment 
+								commentOwner={userReply[0]}
+								commentR={reply[0]}
+								mentionedReply={mentionedReply}
+								userMentionedReply = {userMentionedReply[0]}
+								useFor={"replies"}
+								handleReply={()=>_this.handleReply(reply[0].id)}
+								{..._this.props}
+							/>
+							)
 					})
 					:null
 				 }
@@ -45,6 +50,6 @@ class Comments extends Component{
 		)
 	}
 }
-export default connect()(Comments);
+export default connect()(Replies);
 
 

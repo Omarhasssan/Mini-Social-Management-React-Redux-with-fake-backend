@@ -1,9 +1,10 @@
 import React,{Component} from 'react';
 import {Link , IndexLink} from 'react-router';
-import AddPost from '../components/addPost'
-import Posts from '../components/Posts'
+import AddPost from '../../components/addPost'
+import Posts from '../../components/Posts'
 import { connect } from 'react-redux';
-import {addPost} from '../actions'
+import {addPost} from '../../actions'
+const css = require('./styled.css');
 
 class HomePage extends Component {
 	constructor(props)
@@ -12,16 +13,14 @@ class HomePage extends Component {
 	}
 	render()
 	{
+
 		return(
-			<div>
-				<AddPost addPost = {(txt)=>this.props.dispatch(addPost(txt))}  />
+			<div  className="post-controller col-6">
+				<AddPost addPost = {(txt)=>this.props.dispatch(addPost(txt))}  />						
 				<Posts 
-				  user={this.props.user}
-				  users={this.props.users} 
-				  posts = {this.props.posts}
-				  comments = {this.props.comments} 
-				  usedFor ={'HomePage'}
-				 />				
+			     {...this.props}
+				 usedFor ={'HomePage'}
+				/>						
 			</div>
 		)
 	}
@@ -32,7 +31,8 @@ const mapStateToProps = (state) =>({
 	posts:state.Post,
 	users:state.registeredUsers,
 	user : state.loggedUser,
-	comments:state.Comment
+	comments:state.Comment,
+	ReplyAlert:state.ReplyAlert
 })
 
 

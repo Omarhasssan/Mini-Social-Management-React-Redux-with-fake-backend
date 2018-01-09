@@ -18,3 +18,15 @@ export function Comment (state=intialCommentState,action)
 		default : return state;
 	}
 }
+
+export function ReplyAlert (state={},action)
+{
+	switch(action.type)
+	{
+		case 'ADD_REPLY':
+			return {replyId:action.replyId}
+		case 'REMOVE_REPLY':
+			return {}
+		default: return state;
+	}
+}

@@ -6,11 +6,11 @@ class Like extends Component{
 	constructor(props)
 	{
 		super(props);
-		this.state={expand:false}
 		this.handleClick = this.handleClick.bind(this)
 	}
 	handleClick()
 	{
+		
 		if(this.props.usedFor == 'comment')
 			this.props.dispatch(handleLike(this.props.comment.id,this.props.liked,'comment'))
 		else {
@@ -19,6 +19,7 @@ class Like extends Component{
 	}
 	render()
 	{
+
 		if(this.props.usedFor == 'comment')
 			var {comment,users,likes,liked} = this.props;
 		else
@@ -27,20 +28,12 @@ class Like extends Component{
 				var postId = post.id
 			}
 		
-		const {expand} = this.state;
 
 		return(
 		<div>
-			{likes.usersId && likes.usersId.length > 0 ? 
-				<p onClick={()=>this.setState({expand:!expand})}>{likes.usersId.length} likes</p>
-				:null
-			}
-			{expand?
-				 <ShowLikes likes={likes} users={users} />
-				 :null
-			}	
-			<a onClick={this.handleClick}>
-			{liked ? 'UNLIKE' : 'LIKE'}
+			
+			<a style={{color:liked?'#1997c6':'white'}} onClick={this.handleClick}>
+			 LIKE
 			</a>	
 			
 		</div>

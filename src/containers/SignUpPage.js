@@ -12,14 +12,8 @@ class SignUpPage extends Component {
 	}
 	render()
 	{
-		console.log("hii")
 		return (
 			<div>
-				<Header 
-				{...this.props} 
-				menuOpen = {()=>this.props.dispatch(menuToggleAction('OPEN'))} 
-				menuHide = {()=>this.props.dispatch(menuToggleAction('HIDE'))} 
-				/>
 				<SignUp />
 			</div>
 		)

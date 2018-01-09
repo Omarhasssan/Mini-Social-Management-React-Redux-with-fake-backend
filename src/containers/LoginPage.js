@@ -14,11 +14,7 @@ class LoginPage extends Component {
 	{
 		return (
 			<div>
-				<Header 
-				{...this.props} 
-				menuOpen = {()=>this.props.dispatch(menuToggleAction('OPEN'))} 
-				menuHide = {()=>this.props.dispatch(menuToggleAction('HIDE'))} 
-				/>
+				
 				<Login />
 			</div>
 		)

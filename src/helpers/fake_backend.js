@@ -200,21 +200,26 @@ export function configureFakeBackend() {
                 
                 if (url.endsWith('/addreply') && opts.method === 'POST') {
                     let user = JSON.parse(localStorage.getItem('user'));
-                    let req = JSON.parse(opts.body)  
+                    let req = JSON.parse(opts.body) 
                     let newReply = {
                                 id:comments.length+1,
                                 userId:user.id,
                                 likes:{usersId:[]},
                                 txt:req.txt,
-                                repliesId:[]
+                                repliesId:[],
+                                mentionReplyId:req.mentioned ? req.replyId : -1 
                             }
                  comments = comments.map(function(c){
-                        if(c.id == req.cmntId)
+                        if(req.mentioned && c.id == req.replyId)
                             return{
                                 ...c,
                                 repliesId:[...c.repliesId,newReply.id]
                             }
-
+                     if(c.id == req.cmntId)
+                            return{
+                                ...c,
+                                repliesId:[...c.repliesId,newReply.id]
+                            }
                         return c;
                     })      
                 comments.push(newReply);              
