@@ -1,0 +1,19 @@
+body{
+	color:white;
+	height:100vh;
+	background-color: rgb(37, 40, 48)!important;
+}
+
+#root2{
+	position: relative!important;
+	display: block!important;
+	width: 100%;
+	height: auto;
+	background:none!important;
+	margin:0 auto; 
+	border:1px solid #323232;
+}
+#root{
+	width: 100%;
+	padding: 50px 0;
+}

@@ -1,0 +1,26 @@
+{
+  "name": "project2",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "http://Omarhasssan.github.io/socialManagement-React-Redux-with-fake-backend/",
+  "dependencies": {
+    "react": "^0.14.9",
+    "react-dom": "^0.14.0",
+    "react-images-upload": "^1.1.1",
+    "react-redux": "^5.0.6",
+    "react-router": "^2.4.1",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "class-to-classname": "^1.0.1"
+  }
+}

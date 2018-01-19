@@ -1,0 +1,31 @@
+html *{
+	-webkit-font-smoothing: antialiased;
+}
+
+nav{
+	justify-content: flex-start;
+	height: 100%;
+}
+
+.nav a{
+	color:#fff;
+	width:150px;
+}
+
+.active{
+	background-color: #1997c6;
+	border-radius: 0.25rem;
+	
+}
+@media screen and (max-width: 767px) {
+	.nav a{
+		width: 60px;
+	}
+	.active{
+		
+		text-align: center;
+	}
+	.nav-link{
+		margin:0rem 10px;
+	}
+}
