@@ -63,9 +63,9 @@ class FormRender extends Component {
 					 disabled={username.length == 0 || password.length == 0}
 					 onClick={()=>{
 					 	if(usedFor == "Login")
-								onClick(this.name,this.pw)
+								onClick(username,password)
 					 	else
-					 	 	this.validate(this.name,this.pw)
+					 	 	this.validate(username,password)
 					 }
 					}
 					 >
