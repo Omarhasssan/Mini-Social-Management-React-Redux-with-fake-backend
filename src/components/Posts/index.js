@@ -21,10 +21,10 @@ const {usedFor,Posts,userposts,users,user,comments,UserProfile} = this.props
 	let _this = this;
 	let postOwner;
 	let uposts ,sharedPost,sharedPostOwner;
-	if(usedFor == "ProfilePage")
+	if(usedFor == "ProfilePage" || usedFor == "UserProfile")
 		{
 			uposts = userposts;
-			postOwner = user;
+			//postOwner = user;
 		}
 	
 	else

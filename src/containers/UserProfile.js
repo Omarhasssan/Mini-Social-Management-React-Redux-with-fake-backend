@@ -14,6 +14,7 @@ class UserProfile extends Component {
 	render()
 	{
 		let userposts = getUserPosts(this.props.UserProfile,this.props.Posts);
+		
 		return(
 			<div  className="post-controller col-12  col-md-8 col-lg-9">
 				<AddPost addPost = {(txt)=>this.props.dispatch(addPost(txt,this.props.UserProfile))}  />						
